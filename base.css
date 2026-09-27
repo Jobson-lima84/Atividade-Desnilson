@@ -1,0 +1,486 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.base{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100vw;
+
+    margin: 0;
+    background-color: rgb(255, 255, 255);
+}
+.Logo{
+    width: 350px;
+    height: 180px;
+    border-radius: 30px;
+    object-fit: cover;
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 0 2px #101113, 0 8px 15px rgba(0, 0, 0, 0.1 );
+    margin-bottom: -20px;
+    z-index: 2;
+    transition: transform 0.3s ease;
+    margin-top: 20px;
+}
+.Logo:hover {
+    transform: scale(1.1);
+}
+.caixa-login{
+    background-color: white;
+    padding: 40px 30px 30px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 68%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 1;
+}
+.caixa-login h2{
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-family: fantasy;
+    color: #1a1919;
+}
+.caixa-login input{
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+.grupo-input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+.grupo-input input{
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+.grupo-input input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    background-color: #f0f8ff;
+}
+.grupo-input label{
+    font-size: 20px;
+    color: #1a1919;
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.Link-Esqueceu{
+    font-size: 15px;
+    color: #111010;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-decoration: none;
+    color:#007bff;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+.Link-Esqueceu:hover{
+    text-decoration: underline;
+    color: blue;
+}
+.Cadastro{
+    font-size: 15px;
+    color: #111010;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.Link-Cadastro{
+    font-size: 15px;
+    color:#007bff;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+.Link-Cadastro:hover{
+    text-decoration: underline;
+    color: blue;
+}
+button{
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+.caixa-login button:hover {
+    background-color: blue;
+}
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+button[type="submit"]:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+button[type="submit"]:active {
+    background-color: #004080;
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+button[type="submit"]:focus-visible {
+    outline: 3px solid #6a839c;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+    outline-offset: 2px;
+}
+.login-social{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 5px 0 5px 0;
+}
+.botao-social{
+    display: flex;
+    width: 50px;
+    height: 50px;
+    border-radius: 20%;
+    border: 2px solid #ffffff;
+    background-color: #ffffff;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.botao-social img{
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+.botao-social:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-color: #000000;
+    border: 2px solid;
+}
+.botao-social:active{
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.Separador{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0 20px 0;
+    color: #1a1919;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.Separador::before, .Separador::after{
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #1a1919;
+}
+.Separador span{
+    padding: 0 10px;
+}
+
+
+-------------pagina_cadastro-----------------
+
+/* Reset global de regras */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Fundo da tela configurado para receber uma imagem full-screen e responsiva */
+.base {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100vw;
+    margin: 0;
+
+    /* --- CONFIGURAÇÃO DA IMAGEM DE FUNDO --- */
+    /* Caminho para a sua imagem + gradiente escuro suave para destacar o formulário */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('Imagens/fundosite.jpg');
+    
+    /* Faz a imagem cobrir toda a tela sem distorcer ou repetir */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Efeito parallax suave ao rolar em telas menores */
+
+    padding: 20px 10px;
+}
+
+/* Estilo da Logo com sobreposição em relação à caixa principal */
+.Logo {
+    width: 350px;
+    max-width: 90vw;
+    height: 180px;
+    border-radius: 30px;
+    object-fit: cover;
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 0 2px #101113, 0 8px 15px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    margin-bottom: -20px; /* Sobreposição no card */
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+
+.Logo:hover {
+    transform: scale(1.05);
+}
+
+/* Card central com leve transparência/blur opcional para integrar ao fundo */
+.caixa-login {
+    background-color: rgba(255, 255, 255, 0.95); /* 95% opaco para boa leitura */
+    backdrop-filter: blur(5px); /* Efeito de vidro desfocado no fundo (opcional) */
+    padding: 40px 30px 30px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    width: 90%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 1;
+}
+
+.caixa-login h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 2px;
+    font-family: fantasy, sans-serif;
+    color: #1a1919;
+    font-size: clamp(24px, 4vw, 30px);
+}
+
+.subtitulo {
+    text-align: center;
+    color: #555555;
+    font-size: 14px;
+    margin-bottom: 10px;
+    font-family: sans-serif;
+}
+
+/* Grupos de Input */
+.grupo-input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+}
+
+.grupo-input label {
+    font-size: 16px;
+    color: #1a1919;
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-family: sans-serif;
+}
+
+.grupo-input input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.grupo-input input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    background-color: #f0f8ff;
+}
+
+/* Mensagens de erro de validação */
+.mensagem-erro {
+    color: #d9534f;
+    font-size: 13px;
+    margin-top: 4px;
+    font-family: sans-serif;
+    display: none;
+}
+
+/* Botão do formulário */
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+button[type="submit"]:active {
+    background-color: #004080;
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Links do rodapé do card */
+.Cadastro {
+    font-size: 15px;
+    color: #111010;
+    text-align: center;
+    margin-top: 10px;
+    font-family: sans-serif;
+}
+
+.Link-Cadastro {
+    font-size: 15px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.Link-Cadastro:hover {
+    text-decoration: underline;
+    color: blue;
+}
+
+/* Subtítulo do formulário */
+.subtitulo {
+    text-align: center;
+    color: #555555;
+    font-size: 14px;
+    margin-bottom: 10px;
+    font-family: sans-serif;
+}
+
+/* Mensagens de validação de erro */
+.mensagem-erro {
+    color: #d9534f;
+    font-size: 13px;
+    margin-top: 4px;
+    font-family: sans-serif;
+    display: none;
+}
+
+/* Modal de Confirmação de Sucesso */
+.modal-sucesso {
+    display: none; /* Inicia oculto */
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(8px);
+    padding: 35px 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    z-index: 10;
+    animation: surgimento 0.4s ease-out forwards;
+}
+
+.modal-sucesso h3 {
+    color: #1a1919;
+    font-family: sans-serif;
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.modal-sucesso p {
+    color: #555555;
+    font-family: sans-serif;
+    font-size: 15px;
+}
+
+.icone-sucesso {
+    width: 60px;
+    height: 60px;
+    background-color: #28a745;
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px auto;
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+}
+
+.texto-redirecionamento {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #007bff;
+}
+
+/* Animação suave para exibição da confirmação */
+@keyframes surgimento {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Responsividade Mobile */
+@media (max-width: 480px) {
+    .Logo {
+        width: 280px;
+        height: 140px;
+        margin-bottom: -15px;
+    }
+
+    .caixa-login {
+        width: 95%;
+        padding: 30px 20px 20px 20px;
+    }
+
+    .modal-sucesso {
+        width: 95%;
+        padding: 25px 15px;
+    }
+}
