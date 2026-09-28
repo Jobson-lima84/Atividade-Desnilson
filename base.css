@@ -212,6 +212,19 @@ button[type="submit"]:focus-visible {
     padding: 0 10px;
 }
 
+.rodape{
+    position:fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    margin-top: 40px;
+    background-color: #246F9E;
+    color: #f1f5f9;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 10px 20px;
+    text-align: center;
+}
 
 -------------pagina_cadastro-----------------
 
