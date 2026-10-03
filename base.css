@@ -1,9 +1,10 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-.base{
+
+.base {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -14,22 +15,25 @@
     margin: 0;
     background-color: rgb(255, 255, 255);
 }
-.Logo{
+
+.Logo {
     width: 350px;
     height: 180px;
     border-radius: 30px;
     object-fit: cover;
     border: 2px solid #ffffff;
-    box-shadow: 0 0 0 2px #101113, 0 8px 15px rgba(0, 0, 0, 0.1 );
+    box-shadow: 0 0 0 2px #101113, 0 8px 15px rgba(0, 0, 0, 0.1);
     margin-bottom: -20px;
     z-index: 2;
     transition: transform 0.3s ease;
     margin-top: 20px;
 }
+
 .Logo:hover {
     transform: scale(1.1);
 }
-.caixa-login{
+
+.caixa-login {
     background-color: white;
     padding: 40px 30px 30px 30px;
     border-radius: 12px;
@@ -41,25 +45,29 @@
     gap: 15px;
     z-index: 1;
 }
-.caixa-login h2{
+
+.caixa-login h2 {
     text-align: center;
     margin-top: 0;
     margin-bottom: 5px;
     font-family: fantasy;
     color: #1a1919;
 }
-.caixa-login input{
+
+.caixa-login input {
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 16px;
 }
+
 .grupo-input {
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
 }
-.grupo-input input{
+
+.grupo-input input {
     padding: 10px;
     border: 1px solid #000000;
     border-radius: 6px;
@@ -67,42 +75,48 @@
     outline: none;
     transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
+
 .grupo-input input:focus {
     border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
     background-color: #f0f8ff;
 }
-.grupo-input label{
+
+.grupo-input label {
     font-size: 20px;
     color: #1a1919;
     text-align: left;
     font-weight: bold;
     margin-bottom: 5px;
 }
-.Link-Esqueceu{
+
+.Link-Esqueceu {
     font-size: 15px;
     color: #111010;
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
     text-decoration: none;
-    color:#007bff;
+    color: #007bff;
     transition: color 0.3s ease, text-decoration 0.3s ease;
 }
-.Link-Esqueceu:hover{
+
+.Link-Esqueceu:hover {
     text-decoration: underline;
     color: blue;
 }
-.Cadastro{
+
+.Cadastro {
     font-size: 15px;
     color: #111010;
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
 }
-.Link-Cadastro{
+
+.Link-Cadastro {
     font-size: 15px;
-    color:#007bff;
+    color: #007bff;
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -110,11 +124,13 @@
     font-weight: bold;
     transition: color 0.3s ease, text-decoration 0.3s ease;
 }
-.Link-Cadastro:hover{
+
+.Link-Cadastro:hover {
     text-decoration: underline;
     color: blue;
 }
-button{
+
+button {
     width: 100%;
     padding: 12px;
     background-color: #007bff;
@@ -126,9 +142,11 @@ button{
     margin-top: 10px;
     transition: background-color 0.3s ease;
 }
+
 .caixa-login button:hover {
     background-color: blue;
 }
+
 button[type="submit"] {
     width: 100%;
     padding: 12px;
@@ -144,29 +162,34 @@ button[type="submit"] {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease, transform 0.15s ease, box-shadow 0.2s ease;
 }
+
 button[type="submit"]:hover {
     background-color: #0056b3;
     transform: translateY(-2px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
+
 button[type="submit"]:active {
     background-color: #004080;
     transform: translateY(0);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
+
 button[type="submit"]:focus-visible {
     outline: 3px solid #6a839c;
     box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
     outline-offset: 2px;
 }
-.login-social{
+
+.login-social {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 15px;
     margin: 5px 0 5px 0;
 }
-.botao-social{
+
+.botao-social {
     display: flex;
     width: 50px;
     height: 50px;
@@ -178,22 +201,26 @@ button[type="submit"]:focus-visible {
     text-decoration: none;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.botao-social img{
+
+.botao-social img {
     width: 40px;
     height: 40px;
     object-fit: contain;
 }
-.botao-social:hover{
+
+.botao-social:hover {
     transform: translateY(-3px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     border-color: #000000;
     border: 2px solid;
 }
-.botao-social:active{
+
+.botao-social:active {
     transform: translateY(0);
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
-.Separador{
+
+.Separador {
     display: flex;
     align-items: center;
     text-align: center;
@@ -203,12 +230,15 @@ button[type="submit"]:focus-visible {
     font-weight: bold;
     letter-spacing: 1px;
 }
-.Separador::before, .Separador::after{
+
+.Separador::before,
+.Separador::after {
     content: '';
     flex: 1;
     border-bottom: 1px solid #1a1919;
 }
-.Separador span{
+
+.Separador span {
     padding: 0 10px;
 }
 
@@ -235,12 +265,13 @@ button[type="submit"]:focus-visible {
     /* --- CONFIGURAÇÃO DA IMAGEM DE FUNDO --- */
     /* Caminho para a sua imagem + gradiente escuro suave para destacar o formulário */
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('Imagens/fundosite.jpg');
-    
+
     /* Faz a imagem cobrir toda a tela sem distorcer ou repetir */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed; /* Efeito parallax suave ao rolar em telas menores */
+    background-attachment: fixed;
+    /* Efeito parallax suave ao rolar em telas menores */
 
     padding: 20px 10px;
 }
@@ -255,7 +286,8 @@ button[type="submit"]:focus-visible {
     border: 2px solid #ffffff;
     box-shadow: 0 0 0 2px #101113, 0 8px 15px rgba(0, 0, 0, 0.2);
     margin-top: 20px;
-    margin-bottom: -20px; /* Sobreposição no card */
+    margin-bottom: -20px;
+    /* Sobreposição no card */
     z-index: 2;
     transition: transform 0.3s ease;
 }
@@ -266,8 +298,10 @@ button[type="submit"]:focus-visible {
 
 /* Card central com leve transparência/blur opcional para integrar ao fundo */
 .caixa-login {
-    background-color: rgba(255, 255, 255, 0.95); /* 95% opaco para boa leitura */
-    backdrop-filter: blur(5px); /* Efeito de vidro desfocado no fundo (opcional) */
+    background-color: rgba(255, 255, 255, 0.95);
+    /* 95% opaco para boa leitura */
+    backdrop-filter: blur(5px);
+    /* Efeito de vidro desfocado no fundo (opcional) */
     padding: 40px 30px 30px 30px;
     border-radius: 12px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
@@ -407,7 +441,8 @@ button[type="submit"]:active {
 
 /* Modal de Confirmação de Sucesso */
 .modal-sucesso {
-    display: none; /* Inicia oculto */
+    display: none;
+    /* Inicia oculto */
     background-color: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(8px);
     padding: 35px 25px;
@@ -454,12 +489,27 @@ button[type="submit"]:active {
     color: #007bff;
 }
 
+.rodape {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    margin-top: 40px;
+    background-color: #246F9E;
+    color: #f1f5f9;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 10px 20px;
+    text-align: center;
+}
+
 /* Animação suave para exibição da confirmação */
 @keyframes surgimento {
     from {
         opacity: 0;
         transform: translateY(20px) scale(0.95);
     }
+
     to {
         opacity: 1;
         transform: translateY(0) scale(1);
