@@ -242,8 +242,8 @@ button[type="submit"]:focus-visible {
     padding: 0 10px;
 }
 
-.rodape{
-    position:fixed;
+.rodape {
+    position: fixed;
     bottom: 0;
     left: 0;
     z-index: 10;
@@ -546,4 +546,66 @@ button[type="submit"]:active {
         width: 95%;
         padding: 25px 15px;
     }
+}
+
+/* Pagina Home*/
+
+body.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+    background-color: #222; /* Define a cor de fundo sem apagar a imagem */
+    background-image: url('https://picsum.photos/id/1015/1600/900');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-size: 120%;
+}
+
+.card {
+    background: #246F9Ed0;
+    color: white;
+    padding: 2em;
+    border-radius: 30px;
+    width: 100%;
+    max-width: 420px;
+    margin: 1em;
+}
+
+.search {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button.butao {
+    margin: 0.5em;
+    border-radius: 50%;
+    border: none;
+    height: 44px;
+    width: 44px;
+    outline: none;
+    background:#004080;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+button.butao:hover {
+    background:#007bff
+}
+
+input.search-bar {
+    border: none;
+    outline: none;
+    padding: 0.4em 1em;
+    border-radius: 24px;
+    background:#004080;
+    color:white;
+    font-family: inherit;
+    font-size: 105%;
+    width: calc(100% - 10px);
 }
