@@ -625,3 +625,17 @@ h1.temp {
     align-items: center;
 }
 
+.clima.carregando {
+    visibility: hidden;
+    max-height: 20px;
+    position: relative;
+}
+
+.clima.carregando:after {
+    visibility: visible;
+    content: "Carregando...";
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 20px;
+}
