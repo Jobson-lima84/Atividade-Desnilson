@@ -640,7 +640,9 @@ h1.temp {
     left: 20px;
 }
 
-/* Estilização do Cabeçalho com Logo */
+/* ==========================================
+   ESTILHO DO CABEÇALHO (Compacto e Alinhado)
+   ========================================== */
 .cabecalho {
     position: fixed;
     top: 0;
@@ -649,16 +651,20 @@ h1.temp {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 30px;
-    background-color: #2b6188;
+    flex-wrap: nowrap; /* Impede qualquer quebra de linha */
+    padding: 8px 20px;
+    background-color: #2b6188; /* Mantém a faixa azul padrão */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     z-index: 1000;
+    box-sizing: border-box;
 }
 
 .nav-container {
     display: flex;
     align-items: center;
-    gap: 25px;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: nowrap;
 }
 
 .brand {
@@ -668,31 +674,27 @@ h1.temp {
 }
 
 .logo-img {
-    height: 44px; /* Altura ajustada proporcionalmente */
+    height: 52px; /* Altura ideal para manter a faixa fina */
     width: auto;
     object-fit: contain;
-    /* Remove o fundo branco da imagem original integrando-a ao azul da barra */
     mix-blend-mode: multiply; 
     background-color: transparent;
-    transition: transform 0.2s ease;
-}
-
-.brand:hover .logo-img {
-    transform: scale(1.05);
 }
 
 .navegacao {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 15px; /* Espaço uniforme entre Home, Monitoramento, Comunidade e Sair */
+    flex-wrap: nowrap;
 }
 
 .nav-link {
     color: #ffffff;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 600;
-    transition: opacity 0.2s ease, color 0.2s ease;
+    white-space: nowrap; /* Impede que o texto quebre no meio */
+    transition: opacity 0.2s ease;
 }
 
 .nav-link:hover {
@@ -706,9 +708,36 @@ h1.temp {
 
 .btn-sair {
     cursor: pointer;
+    color: #ffdddd; /* Um tom levemente diferenciado para destacar o botão de sair, se desejar */
 }
 
-/* Recálculo do padding superior da página */
+.btn-sair:hover {
+    color: #ffffff;
+}
+
+/* Espaçamento superior fixo do corpo da página */
 body.home {
-    padding-top: 75px;
+    padding-top: 65px;
+}
+
+
+/* ==========================================
+   AJUSTE PARA CELULARES MUITO ESTREITOS
+   ========================================== */
+@media (max-width: 480px) {
+    .cabecalho {
+        padding: 6px 10px;
+    }
+
+    .navegacao {
+        gap: 8px; /* Reduz um pouco o espaço entre os links em telas bem pequenas */
+    }
+
+    .nav-link {
+        font-size: 0.78rem;
+    }
+
+    .logo-img {
+        height: 28px;
+    }
 }
