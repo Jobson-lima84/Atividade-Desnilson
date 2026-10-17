@@ -639,3 +639,76 @@ h1.temp {
     top: 0;
     left: 20px;
 }
+
+/* Estilização do Cabeçalho com Logo */
+.cabecalho {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 30px;
+    background-color: #2b6188;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 44px; /* Altura ajustada proporcionalmente */
+    width: auto;
+    object-fit: contain;
+    /* Remove o fundo branco da imagem original integrando-a ao azul da barra */
+    mix-blend-mode: multiply; 
+    background-color: transparent;
+    transition: transform 0.2s ease;
+}
+
+.brand:hover .logo-img {
+    transform: scale(1.05);
+}
+
+.navegacao {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.nav-link:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+.nav-link.ativo {
+    border-bottom: 2px solid #ffffff;
+}
+
+.btn-sair {
+    cursor: pointer;
+}
+
+/* Recálculo do padding superior da página */
+body.home {
+    padding-top: 75px;
+}
