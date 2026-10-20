@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoramento - Olho no Tempo</title>
+    
+    <!-- Fontes e Ícones -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Leaflet (Mapa) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+    <!-- Estilos do Projeto -->
+    <link rel="stylesheet" href="Css/monitoramento.css">
+    
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
+    <script src="Js/monitoramento.js" defer></script>
+</head>
+
+<body class="home monitoramento-page">
+
+    <!-- Cabeçalho / Barra Superior -->
+    <header class="cabecalho">
+        <div class="nav-container">
+            <a href="home.html" class="brand">
+                <img src="Imagens/image_ffc3fecf-removebg-preview.png" alt="Olho no Tempo Logo" class="logo-img">
+            </a>
+            <nav class="navegacao">
+                <a href="home.html" class="nav-link">Home</a>
+                <a href="monitoramento.html" class="nav-link ativo">Monitoramento</a>
+                <a href="comunidade.html" class="nav-link">Comunidade</a>
+                <a href="index.html" id="btn-sair" class="nav-link btn-sair">Sair</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="monitoramento-container">
+        
+        <!-- Seção do Mapa + Clima Lateral -->
+        <section class="grid-monitoramento">
+            
+            <!-- Card com o Mapa -->
+            <div class="card card-mapa">
+                <div class="search">
+                    <input type="text" id="search-input" class="search-bar" placeholder="Buscar localização no mapa...">
+                    <button type="button" id="search-btn" class="butao" title="Pesquisar">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+                <div id="mapa"></div>
+                <p class="instrucao-mapa"><i class="fa-solid fa-location-crosshairs"></i> Clique em qualquer ponto do mapa para ver o clima em tempo real.</p>
+            </div>
+
+            <!-- Card com o Clima em Tempo Real -->
+            <div class="card card-clima">
+                <div class="clima">
+                    <h2 class="cidade" id="cidade-nome">Recife, PE</h2>
+                    <h1 class="temp" id="temperatura">--°C</h1>
+                    
+                    <div class="flex clima-info-principal">
+                        <img src="https://openweathermap.org/img/wn/02d@2x.png" alt="Ícone Clima" id="clima-icone" class="icon" />
+                        <div class="descricao" id="clima-descricao">Carregando...</div>
+                    </div>
+
+                    <div class="detalhes-extras">
+                        <div class="item-detalhe">
+                            <i class="fa-solid fa-droplet"></i>
+                            <span id="clima-umidade">Umidade: --%</span>
+                        </div>
+                        <div class="item-detalhe">
+                            <i class="fa-solid fa-wind"></i>
+                            <span id="clima-vento">Velocidade do Vento: -- km/h</span>
+                        </div>
+                        <div class="item-detalhe">
+                            <i class="fa-solid fa-compass"></i>
+                            <span id="clima-coordenadas">Lat: -- | Lon: --</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Seção de Emergência -->
+        <section class="secao-emergencia">
+            <h2 class="titulo-secao"><i class="fa-solid fa-shield-halved"></i> Contatos de Emergência</h2>
+            
+            <div class="grid-emergencia">
+                
+                <!-- Card 1: Polícia Militar -->
+                <div class="card-emergencia">
+                    <div class="emergencia-header">
+                        <div class="icone-box policia">
+                            <i class="fa-solid fa-shield-cat"></i>
+                        </div>
+                        <span class="numero-emergencia">190</span>
+                    </div>
+                    <h3>Polícia Militar</h3>
+                    <p>Ocorrências policiais, crimes em andamento e proteção da ordem pública.</p>
+                    <a href="tel:190" class="btn-emergencia">
+                        <i class="fa-solid fa-phone"></i> Ligar 190
+                    </a>
+                </div>
+
+                <!-- Card 2: SAMU -->
+                <div class="card-emergencia">
+                    <div class="emergencia-header">
+                        <div class="icone-box samu">
+                            <i class="fa-solid fa-truck-medical"></i>
+                        </div>
+                        <span class="numero-emergencia">192</span>
+                    </div>
+                    <h3>SAMU</h3>
+                    <p>Atendimento Móvel de Urgência para casos médicos graves e resgate de saúde.</p>
+                    <a href="tel:192" class="btn-emergencia">
+                        <i class="fa-solid fa-phone"></i> Ligar 192
+                    </a>
+                </div>
+
+                <!-- Card 3: Corpo de Bombeiros -->
+                <div class="card-emergencia">
+                    <div class="emergencia-header">
+                        <div class="icone-box bombeiros">
+                            <i class="fa-solid fa-fire-extinguisher"></i>
+                        </div>
+                        <span class="numero-emergencia">193</span>
+                    </div>
+                    <h3>Corpo de Bombeiros</h3>
+                    <p>Combate a incêndios, resgates em acidentes e emergências com produtos perigosos.</p>
+                    <a href="tel:193" class="btn-emergencia">
+                        <i class="fa-solid fa-phone"></i> Ligar 193
+                    </a>
+                </div>
+
+                <!-- Card 4: Defesa Civil -->
+                <div class="card-emergencia">
+                    <div class="emergencia-header">
+                        <div class="icone-box defesa-civil">
+                            <i class="fa-solid fa-cloud-showers-heavy"></i>
+                        </div>
+                        <span class="numero-emergencia">199</span>
+                    </div>
+                    <h3>Defesa Civil</h3>
+                    <p>Prevenção e assistência em alagamentos, desabamentos e desastres naturais.</p>
+                    <a href="tel:199" class="btn-emergencia">
+                        <i class="fa-solid fa-phone"></i> Ligar 199
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="rodape">
+        <p>KishurDev © Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+
+</html>
