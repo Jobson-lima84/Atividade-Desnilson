@@ -1,0 +1,311 @@
+/* ==========================================
+   1. CONFIGURAÇÃO DA PÁGINA HOME & FUNDO
+   ========================================== */
+body.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: var(--cor-fonte-padrao, "Open Sans", sans-serif);
+    /* Fundo escuro de segurança + imagem com gradiente suave */
+    background-color: #0f172a;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('https://picsum.photos/id/1015/1600/900');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding-top: 85px; /* Compensa a barra de navegação fixa */
+    overflow-x: hidden;
+}
+
+/* Container principal centralizado */
+.home-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex: 1;
+    padding: 20px;
+}
+
+/* ==========================================
+   2. CABEÇALHO FIXO COM EFEITO VIDRO FOSCO
+   ========================================== */
+.cabecalho {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 32px;
+    /* Gradiente dinâmico com profundidade e efeito vidro fosco */
+    background: linear-gradient(135deg, rgba(36, 111, 158, 0.9), rgba(20, 60, 90, 0.95));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.35);
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 44px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logo-img:hover {
+    transform: scale(1.06);
+}
+
+/* Container de Navegação */
+.navegacao {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Botões em formato de Pílula com Micro-interações */
+.nav-link {
+    color: #f8fafc;
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 500;
+    white-space: nowrap;
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover de Luxo */
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Estado Ativo */
+.nav-link.ativo {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border-color: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 4px 16px rgba(0, 123, 255, 0.45);
+    font-weight: 600;
+}
+
+/* Tratamento Especial para o Botão Sair */
+.btn-sair {
+    background: rgba(239, 68, 68, 0.12);
+    border-color: rgba(239, 68, 68, 0.25);
+    color: #fca5a5;
+}
+
+.btn-sair:hover {
+    background: rgba(239, 68, 68, 0.28);
+    border-color: rgba(239, 68, 68, 0.5);
+    color: #ffffff;
+    box-shadow: 0 4px 16px rgba(239, 68, 68, 0.35);
+}
+
+/* ==========================================
+   3. CARD DO CLIMA (GLASSMORPHISM PREMIUM) <- não sei oq glassmorphism significa mas parece chique então tá valendo
+   ========================================== */
+.card {
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: white;
+    padding: 2.2rem;
+    border-radius: 28px;
+    width: 100%;
+    max-width: 440px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+}
+
+/* ==========================================
+   4. BARRA DE PESQUISA (INPUT + BOTÃO)
+   ========================================== */
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 1.8rem;
+}
+
+input.search-bar {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    outline: none;
+    padding: 0.75em 1.2em;
+    border-radius: 24px;
+    background: rgba(0, 64, 128, 0.6);
+    color: white;
+    font-family: inherit;
+    font-size: 105%;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+input.search-bar::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+input.search-bar:focus {
+    border-color: #38bdf8;
+    background: rgba(0, 64, 128, 0.85);
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.35);
+}
+
+button.butao {
+    margin: 0;
+    border-radius: 50%;
+    border: none;
+    height: 46px;
+    width: 46px;
+    outline: none;
+    background: #004080;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+button.butao:hover {
+    background: #007bff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
+}
+
+/* ==========================================
+   5. DADOS DO CLIMA & TIPOGRAFIA
+   ========================================== */
+.cidade {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+h1.temp {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin: 0 0 0.8rem 0;
+    color: #f8fafc;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.clima-info-principal {
+    margin-bottom: 1.2rem;
+}
+
+.icon {
+    width: 64px;
+    height: 64px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.descricao {
+    text-transform: capitalize;
+    margin-left: 10px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #e2e8f0;
+}
+
+.detalhes-extras {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding-top: 1rem;
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    color: #cbd5e1;
+}
+
+.detalhes-extras i {
+    margin-right: 8px;
+    color: #38bdf8;
+}
+
+/* Estado de Carregamento */
+.clima.carregando {
+    visibility: hidden;
+    max-height: 20px;
+    position: relative;
+}
+
+.clima.carregando:after {
+    visibility: visible;
+    content: "Buscando dados meteorológicos...";
+    color: #94a3b8;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-style: italic;
+}
+
+/* ==========================================
+   6. RESPONSIVIDADE MOBILE
+   ========================================== */
+@media (max-width: 600px) {
+    body.home {
+        padding-top: 130px; /* Aumenta o espaçamento superior para acomodar o cabeçalho em duas linhas */
+    }
+
+    .cabecalho {
+        padding: 10px 12px;
+    }
+
+    .nav-container {
+        flex-direction: column; /* Empilha a logo e os links no mobile */
+        gap: 10px;
+        align-items: center;
+    }
+
+    .navegacao {
+        flex-wrap: wrap; /* Permite que os botões quebrem linha se faltar espaço */
+        justify-content: center; /* Centraliza todos os botões, incluindo o Sair */
+        gap: 6px;
+        width: 100%;
+    }
+
+    .nav-link {
+        font-size: 0.75rem;
+        padding: 6px 12px; /* Reduz ligeiramente o padding interno dos botões */
+    }
+
+    .logo-img {
+        height: 32px;
+    }
+}

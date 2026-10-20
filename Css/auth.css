@@ -1,0 +1,198 @@
+/* ==========================================
+   ESTRUTURA DE TELA CHEIA E FUNDO
+   ========================================== */
+.base {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    width: 100vw;
+    padding-bottom: 80px; /* Evita que o card fique coberto pelo rodapé */
+}
+
+.fundo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Logo com elevação física z-index */
+.logo {
+    max-width: 300px;
+    height: 180px;
+    border-radius: 30px;
+    object-fit: cover;
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 0 2px #101113, 0 8px 15px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    margin-bottom: -20px; /* Faz a logo 'morder' o topo do card */
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+/* ==========================================
+   CARD VIDRO / CAIXA DE AUTENTICAÇÃO
+   ========================================== */
+.caixa-login {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    padding: 40px 30px 30px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    width: 90%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 1;
+}
+
+.caixa-login h2 {
+    text-align: center;
+    font-family: fantasy, sans-serif;
+    color: var(--cor-texto-escuro);
+    font-size: 30px;
+}
+
+.caixa-login p {
+    text-align: center;
+    color: var(--cor-texto-escuro);
+    font-size: 15px;
+}
+
+.texto-denso {
+    letter-spacing: -0.3px;
+    line-height: 1.4;
+    text-align: justify;
+}
+
+/* ==========================================
+   INPUTS E GRUPOS DE FORMULÁRIO
+   ========================================== */
+.grupo-input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+}
+
+.grupo-input label {
+    font-size: 16px;
+    color: var(--cor-texto-escuro);
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.grupo-input input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.grupo-input input:focus {
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    background-color: #f0f8ff;
+}
+
+/* ==========================================
+   BOTÕES, LINKS E LOGIN SOCIAL
+   ========================================== */
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--cor-primaria);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s ease, transform 0.15s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--cor-primaria-hover);
+    transform: translateY(-2px);
+}
+
+button[type="submit"]:active {
+    background-color: var(--cor-primaria-active);
+    transform: translateY(0);
+}
+
+.link-destaque {
+    color: var(--cor-primaria);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.link-destaque:hover {
+    text-decoration: underline;
+}
+
+.destaque {
+    color: var(--cor-primaria);
+}
+
+/* Linha divisória de Login Social */
+.divisor {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.divisor::before, .divisor::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #1a1919;
+}
+
+.divisor span {
+    padding: 0 10px;
+}
+
+.login-social {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.botao-social {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    border-radius: 20%;
+    border: 2px solid #ffffff;
+    background-color: #ffffff;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.botao-social img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+}
+
+.botao-social:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}

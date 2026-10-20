@@ -1,0 +1,54 @@
+/* ==========================================
+   1. RESET UNIVERSAL CORRETO
+   ========================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ==========================================
+   2. VARIÁVEIS DE DESIGN (DESIGN TOKENS)
+   ========================================== */
+/* Finalmente coloquei as benditas roots... boa sorte jobson :sob: */
+:root {
+    --cor-primaria: #007bff;
+    --cor-primaria-hover: #0056b3;
+    --cor-primaria-active: #004080;
+    --cor-texto-escuro: #1a1919;
+    --cor-rodape-bg: #246F9E;
+    --cor-fonte-padrao: "Open Sans", Arial, sans-serif;
+}
+
+/* Base de tipografia geral */
+body {
+    font-family: var(--cor-fonte-padrao);
+    background-color: #121212; /* Fundo de segurança escuro */
+    color: var(--cor-texto-escuro);
+    overflow-x: hidden; /* Impede rolagem horizontal indesejada */
+}
+
+input, textarea, button {
+    outline: none;
+    font-family: inherit;
+}
+
+/* ==========================================
+   3. COMPONENTE REUTILIZÁVEL: RODAPÉ GLOBAL
+   ========================================== */
+.rodape {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    background-color: var(--cor-rodape-bg);
+    color: #f1f5f9;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.rodape p {
+    font-size: 14px;
+}
