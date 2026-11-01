@@ -9,14 +9,13 @@ body.home {
     min-height: 100vh;
     margin: 0;
     font-family: var(--cor-fonte-padrao, "Open Sans", sans-serif);
-    /* Fundo escuro de segurança + imagem com gradiente suave */
     background-color: #0f172a;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('https://picsum.photos/id/1015/1600/900');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('../Imagens/fundosite.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    padding-top: 85px; /* Compensa a barra de navegação fixa */
+    padding-top: 85px;
     overflow-x: hidden;
 }
 
@@ -42,7 +41,6 @@ body.home {
     justify-content: space-between;
     align-items: center;
     padding: 12px 32px;
-    /* Gradiente dinâmico com profundidade e efeito vidro fosco */
     background: linear-gradient(135deg, rgba(36, 111, 158, 0.9), rgba(20, 60, 90, 0.95));
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -59,6 +57,13 @@ body.home {
     width: 100%;
 }
 
+/* Agrupamento da Logo e o Nome do Utilizador no Topo */
+.logo-e-usuario {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
 .brand {
     display: flex;
     align-items: center;
@@ -66,7 +71,7 @@ body.home {
 }
 
 .logo-img {
-    height: 44px;
+    height: 40px;
     width: auto;
     object-fit: contain;
     transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -76,6 +81,13 @@ body.home {
     transform: scale(1.06);
 }
 
+.saudacao-topo {
+    color: #f8fafc;
+    font-size: 1rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
 /* Container de Navegação */
 .navegacao {
     display: flex;
@@ -83,7 +95,6 @@ body.home {
     gap: 12px;
 }
 
-/* Botões em formato de Pílula com Micro-interações */
 .nav-link {
     color: #f8fafc;
     text-decoration: none;
@@ -97,7 +108,6 @@ body.home {
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Hover de Luxo */
 .nav-link:hover {
     background: rgba(255, 255, 255, 0.15);
     border-color: rgba(255, 255, 255, 0.3);
@@ -106,7 +116,6 @@ body.home {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Estado Ativo */
 .nav-link.ativo {
     background: linear-gradient(135deg, #007bff, #0056b3);
     border-color: rgba(255, 255, 255, 0.35);
@@ -114,7 +123,6 @@ body.home {
     font-weight: 600;
 }
 
-/* Tratamento Especial para o Botão Sair */
 .btn-sair {
     background: rgba(239, 68, 68, 0.12);
     border-color: rgba(239, 68, 68, 0.25);
@@ -129,7 +137,7 @@ body.home {
 }
 
 /* ==========================================
-   3. CARD DO CLIMA (GLASSMORPHISM PREMIUM) <- não sei oq glassmorphism significa mas parece chique então tá valendo
+   3. CARD DO CLIMA
    ========================================== */
 .card {
     background: rgba(15, 23, 42, 0.75);
@@ -145,8 +153,15 @@ body.home {
     box-sizing: border-box;
 }
 
+.saudacao-usuario {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 1.2rem;
+    color: #38bdf8;
+}
+
 /* ==========================================
-   4. BARRA DE PESQUISA (INPUT + BOTÃO)
+   4. BARRA DE PESQUISA
    ========================================== */
 .search {
     display: flex;
@@ -224,10 +239,6 @@ h1.temp {
     align-items: center;
 }
 
-.clima-info-principal {
-    margin-bottom: 1.2rem;
-}
-
 .icon {
     width: 64px;
     height: 64px;
@@ -280,7 +291,7 @@ h1.temp {
    ========================================== */
 @media (max-width: 600px) {
     body.home {
-        padding-top: 130px; /* Aumenta o espaçamento superior para acomodar o cabeçalho em duas linhas */
+        padding-top: 130px;
     }
 
     .cabecalho {
@@ -288,21 +299,27 @@ h1.temp {
     }
 
     .nav-container {
-        flex-direction: column; /* Empilha a logo e os links no mobile */
+        flex-direction: column;
         gap: 10px;
         align-items: center;
     }
 
+    .logo-e-usuario {
+        flex-direction: column;
+        gap: 4px;
+        text-align: center;
+    }
+
     .navegacao {
-        flex-wrap: wrap; /* Permite que os botões quebrem linha se faltar espaço */
-        justify-content: center; /* Centraliza todos os botões, incluindo o Sair */
+        flex-wrap: wrap;
+        justify-content: center;
         gap: 6px;
         width: 100%;
     }
 
     .nav-link {
         font-size: 0.75rem;
-        padding: 6px 12px; /* Reduz ligeiramente o padding interno dos botões */
+        padding: 6px 12px;
     }
 
     .logo-img {

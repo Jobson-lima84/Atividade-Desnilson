@@ -70,3 +70,55 @@ if (btnSair) {
     fazerLogout(event);
   });
 }
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import { getAuth, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCuGDSIIpHCyOqsS-9hIWHQh6S40lT-1Es",
+  authDomain: "site-olho-no-tempo.firebaseapp.com",
+  projectId: "site-olho-no-tempo",
+  storageBucket: "site-olho-no-tempo.firebasestorage.app",
+  messagingSenderId: "151682343947",
+  appId: "1:151682343947:web:397e8a2bdf614ff71a930e"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+// Monitora o estado da sessão e preenche o nome do usuário
+onAuthStateChanged(auth, (user) => {
+  if (!user) {
+    // Se não houver usuário logado, redireciona de volta para o login
+    window.location.href = "index.html";
+  } else {
+    // Usuário está logado, vamos buscar o nome cadastrado (displayName)
+    const nomeCompleto = user.displayName;
+    const elementoSaudacao = document.getElementById('saudacaoUsuario');
+
+    if (elementoSaudacao) {
+      if (nomeCompleto) {
+        elementoSaudacao.innerText = `Seja bem-vindo, ${nomeCompleto}!`;
+      } else {
+        elementoSaudacao.innerText = `Seja bem-vindo!`;
+      }
+    }
+  }
+});
+
+// Ação do Botão Sair
+document.addEventListener('DOMContentLoaded', () => {
+  const btnSair = document.getElementById('btn-sair');
+  if (btnSair) {
+    btnSair.addEventListener('click', async (e) => {
+      e.preventDefault();
+      try {
+        await signOut(auth);
+        localStorage.removeItem('usuario_logado');
+        window.location.href = "index.html";
+      } catch (error) {
+        console.error("Erro ao terminar sessão:", error);
+      }
+    });
+  }
+});

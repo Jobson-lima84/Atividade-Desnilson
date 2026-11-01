@@ -1,7 +1,7 @@
 /* ==========================================
    1. RESET UNIVERSAL CORRETO
    ========================================== */
-* {
+*, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -10,7 +10,6 @@
 /* ==========================================
    2. VARIÁVEIS DE DESIGN (DESIGN TOKENS)
    ========================================== */
-/* Finalmente coloquei as benditas roots... boa sorte jobson :sob: */
 :root {
     --cor-primaria: #007bff;
     --cor-primaria-hover: #0056b3;
@@ -20,12 +19,11 @@
     --cor-fonte-padrao: "Open Sans", Arial, sans-serif;
 }
 
-/* Base de tipografia geral */
 body {
     font-family: var(--cor-fonte-padrao);
-    background-color: #121212; /* Fundo de segurança escuro */
+    background-color: #121212;
     color: var(--cor-texto-escuro);
-    overflow-x: hidden; /* Impede rolagem horizontal indesejada */
+    overflow-x: hidden;
 }
 
 input, textarea, button {

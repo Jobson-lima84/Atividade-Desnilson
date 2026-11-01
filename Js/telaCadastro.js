@@ -24,9 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (formCadastro) {
     formCadastro.addEventListener('submit', async (event) => {
       event.preventDefault();
-      console.log("Formulário submetido! A iniciar validação...");
+      console.log("Formulário de cadastro submetido...");
 
-      // Captura dos elementos e valores
       const nomeInput = document.getElementById('nome');
       const emailInput = document.getElementById('email');
       const senhaInput = document.getElementById('senha');
@@ -39,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       let eValido = true;
 
-      // 1. Validação de Nome
+      // Validações locais
       if (nome.length < 3) {
         exibirErro('erro-nome', 'Introduza o seu nome (no mínimo 3 caracteres).');
         eValido = false;
@@ -47,7 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
         limparErro('erro-nome');
       }
 
-      // 2. Validação de E-mail (expressão regular)
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(email)) {
         exibirErro('erro-email', 'Introduza um e-mail válido.');
@@ -56,7 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
         limparErro('erro-email');
       }
 
-      // 3. Validação de Senha
       if (senha.length < 6) {
         exibirErro('erro-senha', 'A palavra-passe deve ter pelo menos 6 caracteres.');
         eValido = false;
@@ -64,7 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
         limparErro('erro-senha');
       }
 
-      // 4. Confirmação de Senha
       if (senha !== confirmarSenha) {
         exibirErro('erro-confirmarSenha', 'As palavras-passe não coincidem.');
         eValido = false;
@@ -72,45 +68,24 @@ document.addEventListener('DOMContentLoaded', () => {
         limparErro('erro-confirmarSenha');
       }
 
-      // Se a validação local falhar, interrompe o envio
       if (!eValido) return;
 
       try {
         console.log("A criar utilizador no Firebase...");
 
-        // Criar o utilizador no Firebase Auth
+        // Criação no Firebase Auth
         const userCredential = await createUserWithEmailAndPassword(auth, email, senha);
         const user = userCredential.user;
 
-        // Salvar o Nome no Perfil do Utilizador
+        // Atualiza o perfil com o Nome Completo (displayName)
         await updateProfile(user, {
           displayName: nome
         });
 
-        // Opcional: Guardar dados locais (sem a palavra-passe)
-        salvarUsuarioLocal({ uid: user.uid, nome, email });
+        console.log("Utilizador criado com sucesso!", user.email);
 
-        // Exibir Modal de Sucesso
-        const cardCadastro = document.getElementById('cardCadastro');
-        const modalSucesso = document.getElementById('modalSucesso');
-
-        if (cardCadastro) cardCadastro.style.display = 'none';
-        if (modalSucesso) modalSucesso.style.display = 'block';
-
-        // Contagem regressiva para redirecionamento
-        let tempoRestante = 3;
-        const contadorEl = document.getElementById('contador');
-
-        const intervalo = setInterval(() => {
-          tempoRestante--;
-          if (contadorEl) contadorEl.innerText = tempoRestante;
-
-          if (tempoRestante <= 0) {
-            clearInterval(intervalo);
-            console.log("Redirecionando para index.html...");
-            window.location.href = "index.html";
-          }
-        }, 1000);
+        alert("Cadastro realizado com sucesso! Clique em OK para ir para o login.");
+        window.location.href = "index.html";
 
       } catch (error) {
         console.error("Erro no cadastro Firebase:", error.code, error.message);
@@ -131,7 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// Funções auxiliares de erro
 function exibirErro(idElemento, mensagem) {
   const el = document.getElementById(idElemento);
   if (el) {
@@ -145,16 +119,5 @@ function limparErro(idElemento) {
   if (el) {
     el.innerText = '';
     el.style.display = 'none';
-  }
-}
-
-// Função para guardar dados do utilizador localmente (sem palavra-passe)
-function salvarUsuarioLocal(usuario) {
-  try {
-    let usuarios = JSON.parse(localStorage.getItem('usuarios_olho_tempo')) || [];
-    usuarios.push(usuario);
-    localStorage.setItem('usuarios_olho_tempo', JSON.stringify(usuarios));
-  } catch (e) {
-    console.error("Erro ao guardar dados no localStorage:", e);
   }
 }
