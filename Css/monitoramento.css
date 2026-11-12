@@ -33,12 +33,12 @@ body.home.monitoramento-page {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    padding-top: 85px; /* Compensa a barra de navegação fixa */
+    padding-top: 85px;
     overflow-x: hidden;
     color: #ffffff;
 }
 
-input, textarea, button {
+input, textarea, button, select {
     outline: none;
     font-family: inherit;
 }
@@ -173,7 +173,7 @@ input, textarea, button {
 }
 
 /* ==========================================
-   6. BARRA DE PESQUISA
+   6. BARRA DE PESQUISA & SELETOR DE ESTADO
    ========================================== */
 .search {
     display: flex;
@@ -181,6 +181,31 @@ input, textarea, button {
     justify-content: center;
     gap: 10px;
     margin-bottom: 1.8rem;
+}
+
+select.estado-select {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.75em 0.9em;
+    border-radius: 24px;
+    background: rgba(0, 64, 128, 0.8);
+    color: #ffffff;
+    font-size: 0.98rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+select.estado-select:focus,
+select.estado-select:hover {
+    border-color: #38bdf8;
+    background: rgba(0, 86, 179, 0.95);
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.35);
+}
+
+select.estado-select option {
+    background: #0f172a;
+    color: #ffffff;
 }
 
 input.search-bar {
@@ -277,9 +302,10 @@ button.butao:hover {
 }
 
 .cidade {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
+    line-height: 1.3;
 }
 
 h1.temp {
@@ -401,7 +427,6 @@ h1.temp {
     font-size: 1.4rem;
 }
 
-/* Cores temáticas para os ícones de emergência */
 .icone-box.policia { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
 .icone-box.samu { background: rgba(239, 68, 68, 0.2); color: #f87171; }
 .icone-box.bombeiros { background: rgba(249, 115, 22, 0.2); color: #fb923c; }
@@ -518,4 +543,217 @@ h1.temp {
     .grid-emergencia {
         grid-template-columns: 1fr;
     }
+}
+
+/* ==========================================
+   12. MARCADORES CLIMÁTICOS ANIMADOS NO MAPA
+   ========================================== */
+.custom-weather-pin {
+    background: transparent !important;
+    border: none !important;
+}
+
+.weather-marker-wrapper {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.weather-badge {
+    position: relative;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: rgba(15, 23, 42, 0.92);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.55);
+    border: 2.5px solid #38bdf8;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.weather-pointer {
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 10px solid #38bdf8;
+    margin-top: -2px;
+    z-index: 2;
+}
+
+.weather-pulse {
+    position: absolute;
+    top: 2px;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: rgba(56, 189, 248, 0.45);
+    z-index: 1;
+    animation: markerPulse 2s infinite ease-out;
+}
+
+@keyframes markerPulse {
+    0% { transform: scale(0.95); opacity: 0.85; }
+    100% { transform: scale(1.75); opacity: 0; }
+}
+
+/* --- VARIAÇÃO 1: CHUVA FORTE / TEMPESTADE (VERMELHO DE ALERTA) --- */
+.weather-marker-wrapper.chuva-forte .weather-badge {
+    background: linear-gradient(135deg, #991b1b, #dc2626);
+    border-color: #fca5a5;
+    box-shadow: 0 0 18px rgba(239, 68, 68, 0.85);
+}
+.weather-marker-wrapper.chuva-forte .weather-pointer {
+    border-top-color: #dc2626;
+}
+.weather-marker-wrapper.chuva-forte .weather-pulse {
+    background: rgba(239, 68, 68, 0.65);
+    animation-duration: 1.3s;
+}
+
+/* --- VARIAÇÃO 2: CHUVA LEVE / GAROA --- */
+.weather-marker-wrapper.chuva-leve .weather-badge {
+    background: linear-gradient(135deg, #0369a1, #0284c7);
+    border-color: #7dd3fc;
+}
+.weather-marker-wrapper.chuva-leve .weather-pointer {
+    border-top-color: #0284c7;
+}
+
+/* --- VARIAÇÃO 3: SOL FORTE / CALOR INTENSO --- */
+.weather-marker-wrapper.sol-forte .weather-badge {
+    background: linear-gradient(135deg, #ea580c, #f59e0b);
+    border-color: #fde047;
+    box-shadow: 0 0 18px rgba(245, 158, 11, 0.8);
+}
+.weather-marker-wrapper.sol-forte .weather-pointer {
+    border-top-color: #ea580c;
+}
+.weather-marker-wrapper.sol-forte .weather-pulse {
+    background: rgba(251, 191, 36, 0.55);
+}
+
+/* --- VARIAÇÃO 4: SOL AMENO / CÉU LIMPO --- */
+.weather-marker-wrapper.sol-ameno .weather-badge {
+    background: linear-gradient(135deg, #0284c7, #38bdf8);
+    border-color: #fde047;
+}
+.weather-marker-wrapper.sol-ameno .weather-pointer {
+    border-top-color: #0284c7;
+}
+
+/* --- VARIAÇÃO 5: NUBLADO --- */
+.weather-marker-wrapper.nublado .weather-badge {
+    background: linear-gradient(135deg, #334155, #64748b);
+    border-color: #cbd5e1;
+}
+.weather-marker-wrapper.nublado .weather-pointer {
+    border-top-color: #475569;
+}
+.weather-marker-wrapper.nublado .weather-pulse {
+    background: rgba(148, 163, 184, 0.4);
+}
+
+/* --- VARIAÇÃO 6: FRIO / NEVE --- */
+.weather-marker-wrapper.frio .weather-badge {
+    background: linear-gradient(135deg, #1d4ed8, #06b6d4);
+    border-color: #a5f3fc;
+    box-shadow: 0 0 16px rgba(34, 211, 238, 0.75);
+}
+.weather-marker-wrapper.frio .weather-pointer {
+    border-top-color: #06b6d4;
+}
+.weather-marker-wrapper.frio .weather-pulse {
+    background: rgba(165, 243, 252, 0.55);
+}
+
+/* --- VARIAÇÃO 7: NOITE LIMPA / CÉU ESTRELADO --- */
+.weather-marker-wrapper.noite-limpa .weather-badge {
+    background: linear-gradient(135deg, #090d16, #1e293b);
+    border-color: #94a3b8;
+    box-shadow: 0 0 16px rgba(148, 163, 184, 0.4);
+}
+.weather-marker-wrapper.noite-limpa .weather-pointer {
+    border-top-color: #1e293b;
+}
+.weather-marker-wrapper.noite-limpa .weather-pulse {
+    background: rgba(148, 163, 184, 0.3);
+}
+
+/* ==========================================
+   13. MICROANIMAÇÕES INTERNAS DOS ÍCONES
+   ========================================== */
+.weather-svg {
+    width: 38px;
+    height: 38px;
+    overflow: visible;
+}
+
+.rain-drop {
+    animation: rainFall 0.75s linear infinite;
+}
+.rain-drop:nth-child(2) { animation-delay: 0.25s; }
+.rain-drop:nth-child(3) { animation-delay: 0.5s; }
+
+@keyframes rainFall {
+    0% { transform: translateY(-3px); opacity: 0; }
+    30% { opacity: 1; }
+    100% { transform: translateY(9px); opacity: 0; }
+}
+
+.lightning-bolt {
+    animation: flashBolt 1.6s infinite;
+}
+
+@keyframes flashBolt {
+    0%, 70%, 100% { opacity: 0.2; transform: scale(0.95); }
+    75%, 85% { opacity: 1; transform: scale(1.1); }
+}
+
+.sun-rays {
+    transform-origin: 24px 24px;
+    animation: sunSpin 10s linear infinite;
+}
+.sun-core {
+    transform-origin: 24px 24px;
+    animation: sunHeatPulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes sunSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes sunHeatPulse {
+    from { transform: scale(0.92); }
+    to { transform: scale(1.12); }
+}
+
+.cloud-float {
+    animation: cloudDrift 2.8s ease-in-out infinite alternate;
+}
+
+@keyframes cloudDrift {
+    from { transform: translateX(-2.5px); }
+    to { transform: translateX(2.5px); }
+}
+
+.snow-flake {
+    animation: snowFall 2s linear infinite;
+}
+.snow-flake:nth-child(2) { animation-delay: 0.6s; }
+.snow-flake:nth-child(3) { animation-delay: 1.2s; }
+
+@keyframes snowFall {
+    0% { transform: translateY(-4px) rotate(0deg); opacity: 0; }
+    25% { opacity: 1; }
+    100% { transform: translateY(10px) rotate(180deg); opacity: 0; }
 }

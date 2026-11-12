@@ -49,13 +49,42 @@
             <!-- Card com o Mapa -->
             <div class="card card-mapa">
                 <div class="search">
-                    <input type="text" id="search-input" class="search-bar" placeholder="Buscar localização no mapa...">
+                    <select id="estado-select" class="estado-select" title="Selecione o Estado">
+                        <option value="Pernambuco" selected>PE</option>
+                        <option value="Acre">AC</option>
+                        <option value="Alagoas">AL</option>
+                        <option value="Amapá">AP</option>
+                        <option value="Amazonas">AM</option>
+                        <option value="Bahia">BA</option>
+                        <option value="Ceará">CE</option>
+                        <option value="Distrito Federal">DF</option>
+                        <option value="Espírito Santo">ES</option>
+                        <option value="Goiás">GO</option>
+                        <option value="Maranhão">MA</option>
+                        <option value="Mato Grosso">MT</option>
+                        <option value="Mato Grosso do Sul">MS</option>
+                        <option value="Minas Gerais">MG</option>
+                        <option value="Pará">PA</option>
+                        <option value="Paraíba">PB</option>
+                        <option value="Paraná">PR</option>
+                        <option value="Piauí">PI</option>
+                        <option value="Rio de Janeiro">RJ</option>
+                        <option value="Rio Grande do Norte">RN</option>
+                        <option value="Rio Grande do Sul">RS</option>
+                        <option value="Rondônia">RO</option>
+                        <option value="Roraima">RR</option>
+                        <option value="Santa Catarina">SC</option>
+                        <option value="São Paulo">SP</option>
+                        <option value="Sergipe">SE</option>
+                        <option value="Tocantins">TO</option>
+                    </select>
+                    <input type="text" id="search-input" class="search-bar" placeholder="Buscar bairro ou cidade (ex: Santo Amaro)...">
                     <button type="button" id="search-btn" class="butao" title="Pesquisar">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
                 </div>
                 <div id="mapa"></div>
-                <p class="instrucao-mapa"><i class="fa-solid fa-location-crosshairs"></i> Clique em qualquer ponto do mapa para ver o clima em tempo real.</p>
+                <p class="instrucao-mapa"><i class="fa-solid fa-location-crosshairs"></i> Selecione o estado e digite o bairro/cidade, ou clique em qualquer ponto do mapa.</p>
             </div>
 
             <!-- Card com o Clima em Tempo Real -->
