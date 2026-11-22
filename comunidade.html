@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunidade & Fórum - Olho do Tempo</title>
+
+    <!-- Fontes e Ícones -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="Css/olho-no-tempo.css">
+    <!-- Script do Fórum -->
+    <script type="module" src="Js/comunidade.js" defer></script>
+</head>
+
+<body class="home comunidade-page">
+    <!-- Imagem de Fundo Fixo em Tela Cheia -->
+
+    <!-- Cabeçalho / Barra Superior Fixa -->
+    <header class="cabecalho">
+        <div class="nav-container">
+            <a href="home.html" class="brand" title="Ir para a Página Inicial">
+                <img src="Imagens/LOGO3.png" alt="Olho no Tempo Logo" class="logo-img">
+            </a>
+            <nav class="navegacao" aria-label="Navegação principal">
+                <a href="home.html" class="nav-link">Home</a>
+                <a href="monitoramento.html" class="nav-link">Monitoramento</a>
+                <a href="comunidade.html" class="nav-link ativo" aria-current="page">Comunidade</a>
+                <a href="#" id="btn-sair" class="nav-link btn-sair">Sair</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal do Fórum -->
+    <main class="forum-container">
+
+        <!-- Cabeçalho da Seção -->
+        <section class="forum-header-card">
+            <h1><i class="fa-solid fa-comments"></i> Comunidade Olho do Tempo</h1>
+            <p>Compartilhe alertas meteorológicos, relate o tempo na sua região ou tire dúvidas com outros membros.</p>
+        </section>
+
+        <!-- Formulário para Criar Novo Post -->
+        <section class="card card-novo-post" aria-label="Criar nova publicação">
+            <h3><i class="fa-solid fa-pen-to-square"></i> Criar Nova Publicação</h3>
+            <form id="formNovoPost">
+                <div class="grupo-input">
+                    <label for="tituloPost" class="sr-only">Título da publicação</label>
+                    <input type="text" id="tituloPost" placeholder="Título do seu relato ou dúvida..." required>
+                </div>
+                <div class="grupo-input">
+                    <label for="conteudoPost" class="sr-only">Descrição do relato ou dúvida</label>
+                    <textarea id="conteudoPost" rows="3" placeholder="O que está acontecendo no tempo da sua cidade?" required></textarea>
+                </div>
+
+                <!-- Anexo de Imagem -->
+                <div class="barra-anexo">
+                    <label for="imagemPost" class="btn-anexo">
+                        <i class="fa-solid fa-image"></i> Adicionar foto
+                    </label>
+                    <input type="file" id="imagemPost" accept="image/*" hidden>
+                    <span id="nomeArquivoImagem" class="nome-arquivo">Nenhuma imagem selecionada</span>
+                    <button type="button" id="btnRemoverImagem" class="btn-remover-img" style="display: none;" title="Remover imagem" aria-label="Remover imagem selecionada">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <!-- Prévia da Imagem antes de Publicar -->
+                <div id="previewContainer" class="preview-container" style="display: none;">
+                    <img id="previewImagem" src="" alt="Prévia da imagem selecionada">
+                </div>
+
+                <button type="submit" class="btn-publicar">
+                    <i class="fa-solid fa-paper-plane"></i> Publicar na Comunidade
+                </button>
+            </form>
+        </section>
+
+        <!-- Feed de Posts da Comunidade -->
+        <section class="feed-posts" id="feedPosts" aria-label="Publicações da comunidade">
+
+            <!-- Post Fixado (Pinned) com Destaque Dourado: Relato Confirmado + Guia -->
+            <article class="post-card post-pinned" data-pinned="true">
+                <div class="post-avatar avatar-pinned" aria-hidden="true">
+                    <i class="fa-solid fa-thumbtack"></i>
+                </div>
+                <div class="post-conteudo">
+                    <div class="post-info">
+                        <div class="autor-e-badge">
+                            <span class="post-autor">Rafael Mendes • Morador (Pina / Boa Viagem)</span>
+                            <span class="badge-pinned"><i class="fa-solid fa-star"></i> Fixado pela Comunidade</span>
+                        </div>
+                        <span class="post-tempo">Confirmado • 128 relatos</span>
+                    </div>
+
+                    <h4 class="post-titulo">Chuva torrencial e água subindo na Av. Herculano Bandeira / Domingos Ferreira</h4>
+
+                    <!-- Comentário / Relato do Morador -->
+                    <p class="post-texto">
+                        A chuva apertou de vez nos últimos 40 minutos com rajadas de vento e visibilidade baixa. A pista já acumula água nos trechos mais baixos da avenida e o trânsito começou a travar. Fixamos este relato porque dezenas de moradores confirmaram a mesma situação na região.
+                    </p>
+
+                    <!-- Imagem de Chuva Forte com Destaque de Confirmação -->
+                    <figure class="post-imagem post-imagem-destaque">
+                        <img
+                            src="Imagens/CHUVA-FORTE.webp"
+                            alt="Chuva forte e lâmina d'água na avenida durante temporal"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                        >
+                        <div class="placeholder-chuva" style="display: none;">
+                            <i class="fa-solid fa-cloud-showers-heavy"></i>
+                            <span>Adicione sua foto de chuva forte em <b>Imagens/CHUVA-FORTE.webp</b></span>
+                        </div>
+                        <figcaption class="legenda-midia">
+                            <i class="fa-solid fa-circle-check"></i> Situação confirmada por moradores da região.
+                        </figcaption>
+                    </figure>
+
+                    <!-- Guia Simples logo Abaixo da Imagem -->
+                    <div class="guia-fixado-box">
+                        <h5 class="guia-fixado-titulo">
+                            <i class="fa-solid fa-compass"></i> Guia rápido: como enviar um bom relato
+                        </h5>
+                        <ul class="guia-fixado-lista">
+                            <li><b>Local e referência:</b> cite o bairro, rua ou avenida e o ponto de referência.</li>
+                            <li><b>Horário e intensidade:</b> informe se está garoando, chovendo forte, ventando ou alagando.</li>
+                            <li><b>Foto com segurança:</b> registre sem se expor a fios caídos, enxurradas ou áreas de risco (emergências: <b>Defesa Civil 199</b> / <b>Bombeiros 193</b>).</li>
+                        </ul>
+                    </div>
+
+                    <div class="post-acoes">
+                        <button type="button" class="btn-acao btn-curtir" aria-label="Curtir publicação">
+                            <i class="fa-solid fa-heart"></i> <span>534</span>
+                        </button>
+                        <button type="button" class="btn-acao" aria-label="Ver comentários">
+                            <i class="fa-solid fa-comment"></i> <span>128</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Post de Exemplo 1 (Azul / Não Verificado) -->
+            <article class="post-card">
+                <div class="post-avatar" aria-hidden="true">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="post-conteudo">
+                    <div class="post-info">
+                        <span class="post-autor">Carlos Silva</span>
+                        <span class="post-tempo">Há 15 minutos</span>
+                    </div>
+                    <h4 class="post-titulo">Chuva forte chegando em Boa Viagem!</h4>
+                    <p class="post-texto">O céu fechou completamente aqui na Zona Sul de Recife. Começou a ventar bastante e os primeiros relâmpagos apareceram. Alerta de alagamento na Av. Domingos Ferreira!</p>
+
+                    <div class="post-imagem">
+                        <img
+                            src="Imagens/moradora-chuva.jpg"
+                            alt="Céu escuro e chuva na região de Boa Viagem"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                        >
+                        <div class="placeholder-imagem" style="display: none;">
+                            <i class="fa-solid fa-cloud-rain"></i>
+                            <span>Foto do relato em <b>Imagens/relato-boa-viagem.jpg</b></span>
+                        </div>
+                    </div>
+
+                    <div class="post-acoes">
+                        <button type="button" class="btn-acao btn-curtir" aria-label="Curtir publicação">
+                            <i class="fa-solid fa-heart"></i> <span>12</span>
+                        </button>
+                        <button type="button" class="btn-acao" aria-label="Ver comentários">
+                            <i class="fa-solid fa-comment"></i> <span>4</span>
+                        </button>
+                        <button type="button" class="btn-acao btn-denunciar" aria-label="Denunciar publicação">
+                            <i class="fa-solid fa-flag"></i> <span>Denunciar</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Post de Exemplo 2 (Azul / Não Verificado) -->
+            <article class="post-card">
+                <div class="post-avatar" aria-hidden="true">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="post-conteudo">
+                    <div class="post-info">
+                        <span class="post-autor">Mariana Costa</span>
+                        <span class="post-tempo">Há 2 horas</span>
+                    </div>
+                    <h4 class="post-titulo">Sol forte e tempo seco no interior</h4>
+                    <p class="post-texto">Por aqui em Caruaru o dia está totalmente aberto, muito calor e umidade relativamente baixa. Hidratem-se, pessoal!</p>
+
+                    <div class="post-imagem">
+                        <img
+                            src="Imagens/morador-sol.jpg"
+                            alt="Tempo aberto e sol forte em Caruaru"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                        >
+                        <div class="placeholder-imagem" style="display: none;">
+                            <i class="fa-solid fa-sun"></i>
+                            <span>Foto do relato em <b>Imagens/relato-caruaru.jpg</b></span>
+                        </div>
+                    </div>
+
+                    <div class="post-acoes">
+                        <button type="button" class="btn-acao btn-curtir" aria-label="Curtir publicação">
+                            <i class="fa-solid fa-heart"></i> <span>28</span>
+                        </button>
+                        <button type="button" class="btn-acao" aria-label="Ver comentários">
+                            <i class="fa-solid fa-comment"></i> <span>7</span>
+                        </button>
+                        <button type="button" class="btn-acao btn-denunciar" aria-label="Denunciar publicação">
+                            <i class="fa-solid fa-flag"></i> <span>Denunciar</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="rodape">
+        <p>KishurDev © Todos os direitos reservados.</p>
+    </footer>
+</body>
+
+</html>
