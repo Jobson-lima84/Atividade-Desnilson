@@ -1,70 +1,121 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home - Olho do Tempo</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="Css/global.css">
-    <link rel="stylesheet" href="Css/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="Css/home.css" />
     <script type="module" src="Js/home.js" defer></script>
-</head>
+  </head>
 
-<body class="home">
-
+  <body class="home">
     <!-- Cabeçalho / Barra Superior -->
     <header class="cabecalho">
-        <div class="nav-container">
-            <!-- Esquerda: Logo + Nome do Utilizador -->
-            <div class="logo-e-usuario">
-                <a href="home.html" class="brand">
-                    <img src="Imagens/image_ffc3fecf-removebg-preview.png" alt="Olho no Tempo Logo" class="logo-img">
-                </a>
-                <span id="nomeUsuarioTopo" class="saudacao-topo"></span>
-            </div>
-
-            <!-- Direita: Menu de Navegação -->
-            <nav class="navegacao">
-                <a href="home.html" class="nav-link ativo">Home</a>
-                <a href="monitoramento.html" class="nav-link">Monitoramento</a>
-                <a href="comunidade.html" class="nav-link">Comunidade</a>
-                <a href="#" id="btn-sair" class="nav-link btn-sair">Sair</a>
-            </nav>
+      <div class="nav-container">
+        <!-- Esquerda: Logo + Nome do Utilizador -->
+        <div class="logo-e-usuario">
+          <a href="home.html" class="brand">
+            <img
+              src="Imagens/image_ffc3fecf-removebg-preview.png"
+              alt="Olho no Tempo Logo"
+              class="logo-img"
+            />
+          </a>
+          <span id="nomeUsuarioTopo" class="saudacao-topo"></span>
         </div>
+
+        <!-- Direita: Menu de Navegação -->
+        <nav class="navegacao">
+          <a href="home.html" class="nav-link ativo">Home</a>
+          <a href="monitoramento.html" class="nav-link">Monitoramento</a>
+          <a href="comunidade.html" class="nav-link">Comunidade</a>
+          <a href="#" id="btn-sair" class="nav-link btn-sair">Sair</a>
+        </nav>
+      </div>
     </header>
 
     <!-- Conteúdo Principal -->
     <main class="home-main">
-        <div class="card">
-            <h3 id="saudacaoUsuario" class="saudacao-usuario">Seja bem-vindo!</h3>
-            <div class="search">
-                <input type="text" class="search-bar" placeholder="Pesquisar cidade...">
-                <button class="butao"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </div>
-            <div class="clima carregando">
-                <h2 class="cidade">Clima em Recife</h2>
-                <h1 class="temp">--°C</h1>
-                <div class="flex">
-                    <img src="https://openweathermap.org/img/wn/04d.png" alt="Ícone Clima" class="icon" />
-                    <div class="descricao">Carregando...</div>
-                </div>
-                <div class="detalhes-extras">
-                    <div class="umidade"><i class="fa-solid fa-droplet"></i>Umidade: --%</div>
-                    <div class="vento"><i class="fa-solid fa-wind"></i>Velocidade do Vento: -- km/h</div>
-                </div>
-            </div>
+      <div class="card">
+        <h3 id="saudacaoUsuario" class="saudacao-usuario">Seja bem-vindo!</h3>
+        <div class="search">
+          <select
+            id="estado-select"
+            class="estado-select"
+            title="Selecione o Estado"
+          >
+            <option value="Pernambuco" selected>PE</option>
+            <option value="Acre">AC</option>
+            <option value="Alagoas">AL</option>
+            <option value="Amapá">AP</option>
+            <option value="Amazonas">AM</option>
+            <option value="Bahia">BA</option>
+            <option value="Ceará">CE</option>
+            <option value="Distrito Federal">DF</option>
+            <option value="Espírito Santo">ES</option>
+            <option value="Goiás">GO</option>
+            <option value="Maranhão">MA</option>
+            <option value="Mato Grosso">MT</option>
+            <option value="Mato Grosso do Sul">MS</option>
+            <option value="Minas Gerais">MG</option>
+            <option value="Pará">PA</option>
+            <option value="Paraíba">PB</option>
+            <option value="Paraná">PR</option>
+            <option value="Piauí">PI</option>
+            <option value="Rio de Janeiro">RJ</option>
+            <option value="Rio Grande do Norte">RN</option>
+            <option value="Rio Grande do Sul">RS</option>
+            <option value="Rondônia">RO</option>
+            <option value="Roraima">RR</option>
+            <option value="Santa Catarina">SC</option>
+            <option value="São Paulo">SP</option>
+            <option value="Sergipe">SE</option>
+            <option value="Tocantins">TO</option>
+          </select>
+          <input
+            type="text"
+            class="search-bar"
+            placeholder="Buscar bairro ou cidade..."
+          />
+          <button type="button" class="butao" title="Pesquisar">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
         </div>
+        <div class="clima carregando">
+          <h2 class="cidade">Clima em Recife</h2>
+          <h1 class="temp">--°C</h1>
+          <div class="flex">
+            <img
+              src="https://openweathermap.org/img/wn/04d.png"
+              alt="Ícone Clima"
+              class="icon"
+            />
+            <div class="descricao">Carregando...</div>
+          </div>
+          <div class="detalhes-extras">
+            <div class="umidade">
+              <i class="fa-solid fa-droplet"></i>Umidade: --%
+            </div>
+            <div class="vento">
+              <i class="fa-solid fa-wind"></i>Velocidade do Vento: -- km/h
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
     <footer class="rodape">
-        <p>KishurDev © Todos os direitos reservados.</p>
+      <p>KishurDev © Todos os direitos reservados.</p>
     </footer>
-
-</body>
-
+  </body>
 </html>

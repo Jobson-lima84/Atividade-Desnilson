@@ -1,52 +1,56 @@
 /* ==========================================
    1. RESET UNIVERSAL CORRETO
    ========================================== */
-*, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 /* ==========================================
    2. VARIÁVEIS DE DESIGN (DESIGN TOKENS)
    ========================================== */
 :root {
-    --cor-primaria: #007bff;
-    --cor-primaria-hover: #0056b3;
-    --cor-primaria-active: #004080;
-    --cor-texto-escuro: #1a1919;
-    --cor-rodape-bg: #246F9E;
-    --cor-fonte-padrao: "Open Sans", Arial, sans-serif;
+  --cor-primaria: #007bff;
+  --cor-primaria-hover: #0056b3;
+  --cor-primaria-active: #004080;
+  --cor-texto-escuro: #1a1919;
+  --cor-rodape-bg: #246f9e;
+  --cor-fonte-padrao: "Open Sans", Arial, sans-serif;
 }
 
 body {
-    font-family: var(--cor-fonte-padrao);
-    background-color: #121212;
-    color: var(--cor-texto-escuro);
-    overflow-x: hidden;
+  font-family: var(--cor-fonte-padrao);
+  background-color: #121212;
+  color: var(--cor-texto-escuro);
+  overflow-x: hidden;
 }
 
-input, textarea, button {
-    outline: none;
-    font-family: inherit;
+input,
+textarea,
+button {
+  outline: none;
+  font-family: inherit;
 }
 
 /* ==========================================
    3. COMPONENTE REUTILIZÁVEL: RODAPÉ GLOBAL
    ========================================== */
 .rodape {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    z-index: 100;
-    width: 100%;
-    background-color: var(--cor-rodape-bg);
-    color: #f1f5f9;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 10px 20px;
-    text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  background-color: var(--cor-rodape-bg);
+  color: #f1f5f9;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 10px 20px;
+  text-align: center;
 }
 
 .rodape p {
-    font-size: 14px;
+  font-size: 14px;
 }
